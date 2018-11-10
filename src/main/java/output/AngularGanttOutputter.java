@@ -7,16 +7,19 @@ import resource.ListOfResource;
 import resource.Resource;
 import schedule.Schedule;
 
+import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
+/**
+ * AngulatGantt用の形式のJsonを出力
+ */
 public class AngularGanttOutputter implements Outputter{
     List<Map> mapList;
     private ArrayList<AngularTask> angularTaskList;
+    static Map<String,String> colormap = new HashMap<>(); //同じジョブのプロセスの色を揃える
 
     public AngularGanttOutputter() {
         this.mapList = new ArrayList<>();
@@ -26,7 +29,8 @@ public class AngularGanttOutputter implements Outputter{
     public List convertTasks(Resource resource){
         List<AngularTask> angularTaskList = new ArrayList<>();
         for (Schedule schedule: resource.getResourceSchedule().getScheduleList()){
-            angularTaskList.add(new AngularTask(schedule.getId(),"#00FFFF",schedule.getBeginTime(),schedule.getEndTime()));
+            String color = this.getColor(schedule);
+            angularTaskList.add(new AngularTask(schedule.getId(),"#"+color,schedule.getBeginTime(),schedule.getEndTime()));
         }
         return angularTaskList;
     }
@@ -42,8 +46,30 @@ public class AngularGanttOutputter implements Outputter{
         return mapList;
     }
 
+    /**
+     * 同じジョブのプロセスの色を揃える為
+     * @param schedule
+     * @return
+     */
+    public String getColor(Schedule schedule){
+        if (colormap.containsKey(schedule.getId().substring(0,1))){
+            return colormap.get(schedule.getId().substring(0,1));
+        }
+
+        //色の生成
+        Random random = new Random();
+        int red = random.nextInt(255);
+        int green = random.nextInt(255);
+        int blue = random.nextInt(255);
+        //カラーコードに変換
+        String color = Integer.toString(((red << 16) | (green << 8) | blue), 16);
+        colormap.put(schedule.getId().substring(0,1), color);
+        return color;
+    }
+
+
     @Override
-    public void outputResourceSchedule(ListOfResource listOfResource) {
+    public void outputSchedule(ListOfResource listOfResource) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
             FileWriter fw = new FileWriter("schedule.json");
@@ -55,8 +81,4 @@ public class AngularGanttOutputter implements Outputter{
     }
 
 
-    @Override
-    public void outputaJobSchedule(ListOfJob listOfResource) {
-
-    }
 }

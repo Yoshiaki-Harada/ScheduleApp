@@ -4,7 +4,6 @@ import job.Process;
 import output.AngularGanttOutputter;
 import resource.ListOfResource;
 import resource.Resource;
-import schedule.Schedule;
 import schedule.Scheduler;
 
 import java.util.ArrayList;
@@ -31,23 +30,34 @@ public class Main {
         processList1.add(process2);
         processList1.add(process3);
         Process process4 = new Process("2-1",2,3);
-        Process process5 = new Process("2-2",1,3);
+        Process process5 = new Process("2-2",1,5);
         Process process6 = new Process("2-3",3,3);
         List<Process> processList2= new ArrayList<>();
         processList2.add(process4);
         processList2.add(process5);
         processList2.add(process6);
+        Process process7 = new Process("3-1",3,3);
+        Process process8 = new Process("3-2",2,2);
+        Process process9 = new Process("3-3",1,3);
+        List<Process> processList3= new ArrayList<>();
+        processList3.add(process7);
+        processList3.add(process8);
+        processList3.add(process9);
         Job job1 = new Job("1",processList1);
-        Job job2 = new Job("1",processList2);
+        Job job2 = new Job("2",processList2);
+        Job job3 = new Job("3",processList3);
+
         List<Job> jobList = new ArrayList<>();
         jobList.add(job1);
         jobList.add(job2);
+        jobList.add(job3);
+
         ListOfJob listOfJob = new ListOfJob(jobList);
 
         Scheduler scheduler = new Scheduler();
         scheduler.scheduling(listOfResource,listOfJob);
 
        AngularGanttOutputter angularGanttOutputter = new AngularGanttOutputter();
-       angularGanttOutputter.outputResourceSchedule(listOfResource);
+       angularGanttOutputter.outputSchedule(listOfResource);
     }
 }
