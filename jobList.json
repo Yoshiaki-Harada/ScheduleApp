@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1",
+    "state": "Wait",
+    "processList": [
+      {
+        "id": "1-1",
+        "type": 1,
+        "processTime": 4,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "1-2",
+        "type": 2,
+        "processTime": 5,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "1-3",
+        "type": 3,
+        "processTime": 3,
+        "currentTime": 0,
+        "state": "NotAble"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "state": "Wait",
+    "processList": [
+      {
+        "id": "2-1",
+        "type": 2,
+        "processTime": 3,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "2-2",
+        "type": 1,
+        "processTime": 2,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "2-3",
+        "type": 3,
+        "processTime": 7,
+        "currentTime": 0,
+        "state": "NotAble"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "state": "Wait",
+    "processList": [
+      {
+        "id": "3-1",
+        "type": 3,
+        "processTime": 3,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "3-2",
+        "type": 2,
+        "processTime": 2,
+        "currentTime": 0,
+        "state": "NotAble"
+      },
+      {
+        "id": "3-3",
+        "type": 1,
+        "processTime": 4,
+        "currentTime": 0,
+        "state": "NotAble"
+      }
+    ]
+  }
+]
