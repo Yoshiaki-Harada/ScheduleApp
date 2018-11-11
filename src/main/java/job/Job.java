@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Job {
     private String id;
-    private List<Process> processList;
     private JobState state;
+    private List<Process> processList;
 
     public Job(String id, List<Process> processList) {
         this.id = id;

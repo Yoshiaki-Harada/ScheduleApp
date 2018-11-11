@@ -17,6 +17,8 @@ import java.util.List;
  * AngulatGantt用の形式のJsonを出力
  */
 public class AngularGanttOutputter implements Outputter{
+    public static final String SCHEDULE_FILE = "schedule.json";
+
     List<Map> mapList;
     private ArrayList<AngularTask> angularTaskList;
     static Map<String,String> colormap = new HashMap<>(); //同じジョブのプロセスの色を揃える
@@ -72,7 +74,7 @@ public class AngularGanttOutputter implements Outputter{
     public void outputSchedule(ListOfResource listOfResource) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
-            FileWriter fw = new FileWriter("schedule.json");
+            FileWriter fw = new FileWriter(SCHEDULE_FILE,false);
             fw.write(gson.toJson(this.convertGantt(listOfResource)));
             fw.close();
         } catch (IOException ex) {
