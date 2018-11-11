@@ -7,8 +7,8 @@ intellijを用いてgradleプロジェクトとして作成しました。
 入力について
 Resourceの情報(resourceList.json)
 idが1，処理できるプロセスの種類が1
+
  [ {
- 
     "id": "1",
     "type": 1,
     "resourceSchedule": {
@@ -16,10 +16,12 @@ idが1，処理できるプロセスの種類が1
       "scheduleList": []
     }
   }]
+  
  Jobの情報(jobLit.json)
  Jobのidが，その中にidが1-1のプロセスとidが1-2のProcessがあり，処理順序はこの順番を守らなけらいけないものを想定
  Process1-1は種類が1で処理時間が4
  Process2-2が種類が2で処理時間が5
+ 
 [{   "id": "1",
     "state": "Wait",
     "processList": [{"id": "1-1","type": 1,"processTime": 4,"currentTime": 0,"state": "NotAble"},
