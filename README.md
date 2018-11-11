@@ -8,6 +8,7 @@ intellijを用いてgradleプロジェクトとして作成しました。
 Resourceの情報(resourceList.json)
 idが1，処理できるプロセスの種類が1
  [ {
+ 
     "id": "1",
     "type": 1,
     "resourceSchedule": {
