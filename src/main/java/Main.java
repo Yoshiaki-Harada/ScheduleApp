@@ -14,19 +14,21 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(222);
-
+        //ファイルのInput
         FileInputter fileInputter = new FileInputter();
         List<Job> jobList = fileInputter.inputJobList(JOB_FILE);
         List<Resource> resourceList = fileInputter.inputResourceList(RESOURCE_FILE);
 
+
         ListOfJob listOfJob = new ListOfJob(jobList);
         ListOfResource listOfResource = new ListOfResource(resourceList);
 
+        //スケジュールを組む
         Scheduler scheduler = new Scheduler();
         scheduler.scheduling(listOfResource,listOfJob);
 
-       AngularGanttOutputter angularGanttOutputter = new AngularGanttOutputter();
-       angularGanttOutputter.outputSchedule(listOfResource);
+        //AngularGantt用のスケジュールのJsonファイルを出力
+        AngularGanttOutputter angularGanttOutputter = new AngularGanttOutputter();
+        angularGanttOutputter.outputSchedule(listOfResource);
     }
 }

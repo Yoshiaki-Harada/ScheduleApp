@@ -17,8 +17,6 @@ public class Scheduler {
 
         for (int t = 0; t < 1000; t++){
             //全てのジョブが終わったら終了
-            System.out.println(t);
-
             if (listOfJob.allDone()){
                 break;
             }

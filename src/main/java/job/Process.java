@@ -19,12 +19,38 @@ public class Process {
         this.state = ProcessState.NotAble;
     }
 
+
+
     public boolean isIn(){
         return this.state.isIn();
     }
 
     public boolean isNotAble(){
         return this.state.isNotAble();
+    }
+
+    public boolean isAble(){
+        return this.state.isAble();
+    }
+
+    /**
+     * 終了したかの判定を行う
+     * 終了すれば終了時間の記録も行う
+     * @param t
+     * @return 完了していればtrue していなければfalse
+     */
+    public boolean hasDone(int t){
+        if (this.currentTime == this.processTime){
+            this.state = ProcessState.Done;
+            this.schedule.setEndTime(t+1);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isDone(){
+        return this.state.isDone();
+
     }
 
     public void changeIn(Resource resource, int t){
@@ -48,33 +74,6 @@ public class Process {
     public void incCurrentTime(){
         this.currentTime++;
     }
-
-
-    public boolean isAble(){
-        return this.state.isAble();
-
-    }
-
-    /**
-     * 終了したかの判定を行う
-     * 終了すれば終了時間の記録も行う
-     * @param t
-     * @return 完了していればtrue していなければfalse
-     */
-    public boolean hasDone(int t){
-        if (this.currentTime == this.processTime){
-            this.state = ProcessState.Done;
-            this.schedule.setEndTime(t+1);
-            return true;
-        }
-            return false;
-    }
-
-    public boolean isDone(){
-        return this.state.isDone();
-
-    }
-
 
     public int getProcessTime() {
         return processTime;

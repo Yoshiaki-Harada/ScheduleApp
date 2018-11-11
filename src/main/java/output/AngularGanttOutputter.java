@@ -50,6 +50,7 @@ public class AngularGanttOutputter implements Outputter{
 
     /**
      * 同じジョブのプロセスの色を揃える為
+     * (name:1-1)，(name:1-2)は同じジョブのプロセスと判定
      * @param schedule
      * @return
      */

@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import resource.Resource;
 
+/**
+ * JsonファイルからのInput用のクラス
+ */
 public class FileInputter {
 
     public List<Resource> inputResourceList(String filename) throws IOException {
