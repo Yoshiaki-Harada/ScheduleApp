@@ -29,6 +29,6 @@ idが1，処理できるプロセスの種類が1
  Jobの中には先行関係制約があるものを想定している。
  
 出力(schedule.json)
-ガントチャートを生成するAngularGantt用のJsonファイルを出力。以下の物を使いGガントチャートを出力。https://github.com/ksakae1216/AngularGantt しかし，javaswcriptに対する知識があまりなくファイル入力に対応させることができませんでした。なのでscripts/scripts.jsの中のsampleデータ部分を直接書き換えてガントチャートを出力しました。同じJobのProcessは同じ色で表示できるようにしました。
+ガントチャートを生成するAngularGantt用のJsonファイルを出力。以下の物を使いガントチャートを出力しました。https://github.com/ksakae1216/AngularGantt しかし，javascriptに対する知識があまりなくファイル入力に対応させることができませんでした。なのでscripts/scripts.jsの中のsampleデータ部分を直接書き換えてガントチャートを出力しました。同じJobのProcessは同じ色で表示できるようにしました。
 
 
