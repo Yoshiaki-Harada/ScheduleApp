@@ -8,25 +8,21 @@
 
 Resourceの情報(resourceList.json)
 
-idが1，処理できるプロセスの種類が1
+idが1，処理できるプロセスの種類が1(種類は整数値で判定)
 ```
 [ {
     "id": "1",
-    "type": 1,
-    "resourceSchedule": {
-      "id": "1",
-      "scheduleList": []
-    }
+    "type": 1
   }]
   ```
   
  Jobの情報(jobLit.json)
  
- Jobのidが，その中にidが1-1のプロセスとidが1-2のProcessがあり，処理順序はこの順番を守らなけらいけないものを想定している。
+ Jobのidが1，その中にidが1-1のプロセスとidが1-2のProcessがあり，処理順序はこの順番を守らなければいけないものを想定している。
  
- Process1-1は種類が1で処理時間が4  
+ Process1-1は種類(種類は整数値で判定)が1で処理時間が4
  
- Process2-2は種類が2で処理時間が5
+ Process1-2は種類が2で処理時間が5
  
  ```
  [{   "id": "1",
@@ -38,6 +34,6 @@ idが1，処理できるプロセスの種類が1
 Jobのリストの先頭から優先されるスケジュールを作成する。Jobの中には先行関係制約があるものを想定している。
  
 ## 出力(schedule.json)
-ガントチャートを生成するAngularGantt用のJsonファイルを出力。以下の物を使いガントチャートを出力しました。https://github.com/ksakae1216/AngularGantt しかし，javascriptに対する知識があまりなくファイル入力に対応させることができませんでした。なのでscripts/scripts.jsの中のsampleデータ部分を直接書き換えてガントチャートを出力しました。同じJobのProcessは同じ色で表示できるようにしました。
-
-
+ガントチャートを生成するAngularGantt用のJsonファイルを出力。以下の物を使いガントチャートを出力しました。https://github.com/ksakae1216/AngularGantt しかし，javascriptに対する知識があまりなくファイル入力に対応させることができませんでした。なのでscripts/scripts.jsの中のsampleデータ部分を直接書き換えてガントチャートを出力しました。同じJobのProcessは同じ色で表示できるようにしました。この判定は1文字目が同じものを同じプロセスと認識するようにしています。
+以下がその例です。
+![image](https://github.com/Yoshiaki-Harada/ScheduleApp/blob/master/ガントチャート例.png)
