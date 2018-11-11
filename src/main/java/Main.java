@@ -14,6 +14,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+        System.out.println(111);
+
         FileInputter fileInputter = new FileInputter();
         List<Job> jobList = fileInputter.inputJobList(JOB_FILE);
         List<Resource> resourceList = fileInputter.inputResourceList(RESOURCE_FILE);
