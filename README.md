@@ -31,7 +31,7 @@ idが1，処理できるプロセスの種類が1
  ```
  [{   "id": "1",
     "state": "Wait",
-    "processList": [{"id": "1-1","type": 1,"processTime": 4,"currentTime": 0,"state": "NotAble"},
+    "processList": [{"id": "1-1", "type": 1,"processTime": 4,"currentTime": 0,"state": "NotAble"},
                     {"id": "1-2", "type": 2,"processTime": 5,"currentTime": 0,"state": "NotAble"}]}]
 ```                  
 ## スケジュールについて
