@@ -21,7 +21,7 @@ public class FileInputter {
         final FileInputStream ips = new FileInputStream(filename);
         final InputStreamReader isr = new InputStreamReader(ips, StandardCharsets.UTF_8);
         JsonReader jsonReader = new JsonReader(isr);
-        ArrayList<Resource> resourceList =gson.fromJson(jsonReader, new TypeToken<List<Resource>>() {}.getType());
+        ArrayList<Resource> resourceList = gson.fromJson(jsonReader, new TypeToken<List<Resource>>() {}.getType());
         isr.close();
 
         return resourceList;
