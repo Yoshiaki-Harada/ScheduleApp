@@ -1,26 +1,14 @@
 [
   {
     "id": "1",
-    "type": 1,
-    "resourceSchedule": {
-      "id": "1",
-      "scheduleList": []
-    }
+    "type": 1
   },
   {
     "id": "2",
-    "type": 2,
-    "resourceSchedule": {
-      "id": "2",
-      "scheduleList": []
-    }
+    "type": 2
   },
   {
     "id": "3",
-    "type": 3,
-    "resourceSchedule": {
-      "id": "3",
-      "scheduleList": []
-    }
+    "type": 3
   }
 ]

@@ -13,7 +13,6 @@ public class Resource {
         this.id = id;
         this.type = type;
         this.process = null;
-        this.resourceSchedule = new ResourceSchedule(this.id);
     }
 
     public String getId() {
@@ -26,6 +25,9 @@ public class Resource {
 
     public void setProcess(Process process, int t) {
         this.process = process;
+        if (resourceSchedule == null){
+            this.resourceSchedule = new ResourceSchedule(this.id);
+        }
         this.resourceSchedule.addSchedule(process.getId(), t);
     }
 
