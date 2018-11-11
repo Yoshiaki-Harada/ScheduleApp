@@ -36,4 +36,4 @@ Jobのリストの先頭から優先されるスケジュールを作成する�
 ## 出力(schedule.json)
 ガントチャートを生成するAngularGantt用のJsonファイルを出力。以下の物を使いガントチャートを出力しました。https://github.com/ksakae1216/AngularGantt しかし，javascriptに対する知識があまりなくファイル入力に対応させることができませんでした。なのでscripts/scripts.jsの中のsampleデータ部分を直接書き換えてガントチャートを出力しました。同じJobのProcessは同じ色で表示できるようにしました。
 
-![image](./ガントチャート例.png)
+![image](ScheduleApp/ガントチャート例.png)
