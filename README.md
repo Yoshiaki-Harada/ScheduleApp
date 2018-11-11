@@ -8,23 +8,19 @@
 
 Resourceの情報(resourceList.json)
 
-idが1，処理できるプロセスの種類が1
+idが1，処理できるプロセスの種類が1(種類は整数値で判定)
 ```
 [ {
     "id": "1",
-    "type": 1,
-    "resourceSchedule": {
-      "id": "1",
-      "scheduleList": []
-    }
+    "type": 1
   }]
   ```
   
  Jobの情報(jobLit.json)
  
- Jobのidが，その中にidが1-1のプロセスとidが1-2のProcessがあり，処理順序はこの順番を守らなけらいけないものを想定している。
+ Jobのidが，その中にidが1-1のプロセスとidが1-2のProcessがあり，処理順序はこの順番を守らなければいけないものを想定している。
  
- Process1-1は種類が1で処理時間が4  
+ Process1-1は種類(種類は整数値で判定)が1で処理時間が4
  
  Process2-2は種類が2で処理時間が5
  
