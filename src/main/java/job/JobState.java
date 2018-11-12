@@ -5,11 +5,11 @@ public enum JobState {
     In,//実行中
     Done;//完了
 
-    public boolean isWait(){
+    public boolean isWait() {
         return this == Wait;
     }
 
-    public boolean isDone(){
+    public boolean isDone() {
         return this == Done;
     }
 }

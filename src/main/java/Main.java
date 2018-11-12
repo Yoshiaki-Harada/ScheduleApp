@@ -25,7 +25,7 @@ public class Main {
 
         //スケジュールを組む
         Scheduler scheduler = new Scheduler();
-        scheduler.scheduling(listOfResource,listOfJob);
+        scheduler.scheduling(listOfResource, listOfJob);
 
         //AngularGantt用のスケジュールのJsonファイルを出力
         AngularGanttOutputter angularGanttOutputter = new AngularGanttOutputter();

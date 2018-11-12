@@ -6,19 +6,19 @@ public enum ProcessState {
     In,//実行中
     Done;//完了
 
-    public boolean isNotAble(){
+    public boolean isNotAble() {
         return this == NotAble;
     }
 
-    public boolean isAble(){
+    public boolean isAble() {
         return this == Able;
     }
 
-    public boolean isIn(){
+    public boolean isIn() {
         return this == In;
     }
 
-    public boolean isDone(){
+    public boolean isDone() {
         return this == Done;
     }
 }

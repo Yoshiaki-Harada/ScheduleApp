@@ -1,8 +1,8 @@
 package schedule;
 
 public class Schedule {
-    private String id;//相手のID（プロセスが持てば相手のリソースの，リソースが持てばプレセスのIDを表す）
-    private int beginTime;
+    private final String id;//相手のID（プロセスが持てば相手のリソースの，リソースが持てばプレセスのIDを表す）
+    private final int beginTime;
     private int endTime;
 
     /**
@@ -11,6 +11,9 @@ public class Schedule {
      * @param beginTime
      */
     public Schedule(String id, int beginTime) {
+        if (id == "") {
+            System.out.println("idを指定してください。");
+        }
         this.id = id;
         this.beginTime = beginTime;
     }

@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import job.Job;
+import resource.Resource;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +10,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import resource.Resource;
 
 /**
  * JsonファイルからのInput用のクラス
@@ -27,7 +27,7 @@ public class FileInputter {
         return resourceList;
     }
 
-    public List<Job> inputJobList(String filename) throws IOException{
+    public List<Job> inputJobList(String filename) throws IOException {
         Gson gson = new Gson();
         final FileInputStream ips = new FileInputStream(filename);
         final InputStreamReader isr = new InputStreamReader(ips, StandardCharsets.UTF_8);

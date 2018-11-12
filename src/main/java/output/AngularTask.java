@@ -1,7 +1,5 @@
 package output;
 
-import schedule.Schedule;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,20 +16,20 @@ public class AngularTask {
         this.name = name;
         this.color = color;
         this.from = this.convertTime(from);
-        this.to = this.convertTime(to );
+        this.to = this.convertTime(to);
     }
 
-    public String convertTime(int t){
+    public String convertTime(int t) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date date = new Date();
         try {
             date = sdf.parse(INITIAL_TIME);
-        } catch(ParseException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        calendar.add(Calendar.DATE,t);
+        calendar.add(Calendar.DATE, t);
         Date d1 = calendar.getTime();
 
         return sdf.format(d1);

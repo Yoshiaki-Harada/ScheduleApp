@@ -13,25 +13,25 @@ public class ListOfJob {
         return jobList;
     }
 
-    public void changeProcessAble(){
-        for (Job job: this.jobList){
+    public void changeProcessAble() {
+        for (Job job : this.jobList) {
             job.changeProcessAble();
         }
     }
 
-    public void changeDone(){
-        for (Job job: this.jobList){
+    public void changeDone() {
+        for (Job job : this.jobList) {
             job.changeDone();
         }
     }
 
-    public boolean allDone(){
-        for (Job job :this.jobList){
-            if (!job.isDone()){
-                return false;
+    public boolean allDone() {
+        for (Job job : this.jobList) {
+            if (!job.isDone()) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 

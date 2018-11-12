@@ -4,14 +4,17 @@ import resource.Resource;
 import schedule.Schedule;
 
 public class Process {
-    private String id;
-    private int type;
-    private int processTime;
+    private final String id;
+    private final int type;
+    private final int processTime;
     private int currentTime;
     private ProcessState state;
     private Schedule schedule;
 
     public Process(String id, int type, int processTime) {
+        if (id == "") {
+            System.out.println("idを指定してください。");
+        }
         this.id = id;
         this.type = type;
         this.processTime = processTime;
@@ -20,46 +23,46 @@ public class Process {
     }
 
 
-
-    public boolean isIn(){
+    public boolean isIn() {
         return this.state.isIn();
     }
 
-    public boolean isNotAble(){
+    public boolean isNotAble() {
         return this.state.isNotAble();
     }
 
-    public boolean isAble(){
+    public boolean isAble() {
         return this.state.isAble();
     }
 
     /**
      * 終了したかの判定を行う
      * 終了すれば終了時間の記録も行う
+     *
      * @param t
      * @return 完了していればtrue していなければfalse
      */
-    public boolean hasDone(int t){
-        if (this.currentTime == this.processTime){
+    public boolean hasDone(int t) {
+        if (this.currentTime == this.processTime) {
             this.state = ProcessState.Done;
-            this.schedule.setEndTime(t+1);
+            this.schedule.setEndTime(t + 1);
             return true;
         }
         return false;
     }
 
-    public boolean isDone(){
+    public boolean isDone() {
         return this.state.isDone();
 
     }
 
-    public void changeIn(Resource resource, int t){
+    public void changeIn(Resource resource, int t) {
         this.state = ProcessState.In;
         this.schedule = new Schedule(resource.getId(), t);
     }
 
 
-    public void changeAble(){
+    public void changeAble() {
         this.state = ProcessState.Able;
     }
 
@@ -71,7 +74,7 @@ public class Process {
         return type;
     }
 
-    public void incCurrentTime(){
+    public void incCurrentTime() {
         this.currentTime++;
     }
 
