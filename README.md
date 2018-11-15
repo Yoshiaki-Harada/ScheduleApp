@@ -1,7 +1,11 @@
 # ScheduleApp
 スケジュールを立てる為のプログラムで，卒業論文で作成したプログラムの一部を改良したものです。
-言語はJavaでintellijを用いてgradleプロジェクトとして作成しました。
-
+言語はJavaでintellijを用いてgradleプロジェクトとして作成しました。以下実行方法を示します。
+```
+git clone
+cd ./ScheduleApp/
+./gradlew run
+```
 入力は,ResourceとJobの情報です。それぞれjsonファイルを読み込むようにしています。出力はガントチャート用のjsonファイルです。
 
 ## 入力について
