@@ -9,6 +9,7 @@ import schedule.Schedule;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * AngulatGantt用の形式のJsonを出力
@@ -16,9 +17,9 @@ import java.util.*;
 public class AngularGanttOutputter implements Outputter {
     public static final String SCHEDULE_FILE = "schedule.json";
 
-    List<Map> mapList;
+    private List<Map> mapList;
     private ArrayList<AngularTask> angularTaskList;
-    static Map<String, String> colormap = new HashMap<>(); //同じジョブのプロセスの色を揃える
+    static private Map<String, String> colormap = new HashMap<>(); //同じジョブのプロセスの色を揃える
 
     public AngularGanttOutputter() {
         this.mapList = new ArrayList<>();
@@ -36,10 +37,12 @@ public class AngularGanttOutputter implements Outputter {
 
     public List convertGantt(ListOfResource listOfResource) {
         for (Resource resource : listOfResource.getResourceList()) {
-            Map map = new HashMap<>();
+            Map<String, String> map = new HashMap<>();
             map.put("name", "Resource" + resource.getId());
-            map.put("tasks", this.convertTasks(resource));
-
+            Gson gson = new Gson();
+            //String型に揃える為に，gsonで変換
+            map.put("tasks", gson.toJson(this.convertTasks(resource)));
+            System.out.println(gson.toJson(this.convertTasks(resource)));
             this.mapList.add(map);
         }
         return mapList;
@@ -74,11 +77,23 @@ public class AngularGanttOutputter implements Outputter {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try {
             FileWriter fw = new FileWriter(SCHEDULE_FILE, false);
-            fw.write(gson.toJson(this.convertGantt(listOfResource)));
+            String gantt = gson.toJson(this.convertGantt(listOfResource));
+            //ganttには不要な文字が含まれるのでそれを除去をする。除去したものをjsonファイルに書き込む
+            fw.write(removeExtraString(gantt));
             fw.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public String removeExtraString(String str){
+        String remove1 = "\\";
+        String str1 = str.replaceAll(Pattern.quote(remove1),"");
+        String remove2 = " \"" + "[";
+        String remove3 = "]" + "\"";
+        String str2 = str1.replaceAll(Pattern.quote(remove2), "[");
+        String str3 = str2.replaceAll(Pattern.quote(remove3),"]");
+        return str3;
     }
 
 

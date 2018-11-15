@@ -1,6 +1,5 @@
 package output;
 
-import job.ListOfJob;
 import resource.ListOfResource;
 
 public interface Outputter {
