@@ -6,7 +6,7 @@ git clone
 cd ./ScheduleApp/
 ./gradlew run
 ```
-入力は,ResourceとJobの情報です。それぞれjsonファイルを読み込むようにしています。出力はスケジュールで，今回はガントチャート用のjsonファイルです。
+入力は,ResourceとJobの情報です。それぞれJsonファイルを読み込むようにしています。出力はスケジュールで，今回はガントチャート用のjsonファイルです。
 
 ## 入力について
 
