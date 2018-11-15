@@ -11,7 +11,6 @@ public class Scheduler {
 
 
     public void scheduling(ListOfResource listOfResource, ListOfJob listOfJob) {
-
         //全てのジョブが終わったら終了
         for (int time = 0; listOfJob.allDone(); time++) {
             //実行可能なプロセスの状態を実行可能に変更
@@ -39,5 +38,4 @@ public class Scheduler {
             listOfJob.changeDone();
         }
     }
-
 }

@@ -94,6 +94,4 @@ public class AngularGanttOutputter implements Outputter {
         String str3 = str2.replaceAll(Pattern.quote(remove3), "]");
         return str3;
     }
-
-
 }

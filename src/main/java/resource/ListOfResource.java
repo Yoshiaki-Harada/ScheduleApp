@@ -25,7 +25,6 @@ public class ListOfResource {
         return true;
     }
 
-
     /**
      * 引数のプロセスが可能なリソースを返す
      * 一度Listにしているのは，複数存在してときへの対応を考えた為

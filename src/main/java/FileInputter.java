@@ -37,6 +37,5 @@ public class FileInputter {
 
         return jobList;
     }
-
 }
 
