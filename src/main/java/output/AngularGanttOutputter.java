@@ -85,13 +85,13 @@ public class AngularGanttOutputter implements Outputter {
         }
     }
 
-    public String removeExtraString(String str){
+    public String removeExtraString(String str) {
         String remove1 = "\\";
-        String str1 = str.replaceAll(Pattern.quote(remove1),"");
+        String str1 = str.replaceAll(Pattern.quote(remove1), "");
         String remove2 = " \"" + "[";
         String remove3 = "]" + "\"";
         String str2 = str1.replaceAll(Pattern.quote(remove2), "[");
-        String str3 = str2.replaceAll(Pattern.quote(remove3),"]");
+        String str3 = str2.replaceAll(Pattern.quote(remove3), "]");
         return str3;
     }
 

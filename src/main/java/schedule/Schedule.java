@@ -7,6 +7,7 @@ public class Schedule {
 
     /**
      * 呼び出されると，IDを開始時刻を記録する
+     *
      * @param id
      * @param beginTime
      */
