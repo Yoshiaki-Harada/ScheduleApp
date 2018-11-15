@@ -42,7 +42,6 @@ public class AngularGanttOutputter implements Outputter {
             Gson gson = new Gson();
             //String型に揃える為に，gsonで変換
             map.put("tasks", gson.toJson(this.convertTasks(resource)));
-            System.out.println(gson.toJson(this.convertTasks(resource)));
             this.mapList.add(map);
         }
         return mapList;
